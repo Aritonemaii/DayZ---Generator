@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ2QP0ZQ05"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CZ2QP0ZQ05');
+  </script>
+    <title>Ariston Spawnabletypes Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://github.com/Aritonemaii/Background/blob/main/fundo%20real.gif?raw=true');
+            height: 95vh;
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: repeat; 
+            color: #ffffff;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+        }
+        
+        input[type="file"] {
+            display: none;
+        }
+        .file-label {
+            cursor: pointer;
+            margin-bottom: 50px; /* Adicionado espaço de 20px */
+        }
+        textarea {
+            min-width: 400px;
+            min-height: 550px;
+            margin: 10px;
+            resize: none;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            color: #fff; /* Altera a cor do texto para branco */
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Adiciona um contorno preto às letras */
+        }
+        #container {
+            display: flex;
+            justify-content: center;
+            margin-top: -10px;
+            width: 100%;
+            max-width: 900px; top: -40px;
+        }
+        .contadores{
+          --glow-color: rgb(90, 13, 13);
+          --glow-spread-color: rgba(167, 69, 69, 0.781);
+          --enhanced-glow-color: rgb(109, 5, 5);
+          --btn-color: rgb(119, 0, 0);
+          border: .25em solid;
+          padding: 5px;
+          color: var(--glow-color);
+          font-size: 15px; color: #ffffff;
+          font-weight: bold;
+          background-color: var(--btn-color);
+          border-radius: 1em;
+          outline: none;
+          box-shadow: 0 0 0.5em .25em var(--glow-color),
+                  0 0 2em 1em var(--glow-spread-color),
+                  inset 0 0 .75em .25em var(--glow-color);
+          text-shadow: 0 0 .1em var(--glow-color);
+          position: relative;
+          transition: all 0.9s;
+        }
+
+      .contadores::after {
+      pointer-events: none;
+      content: "";
+      position: absolute;
+      top: 120%;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: var(--glow-spread-color);
+      filter: blur(3em);
+      opacity: .3;
+      transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+      }
+
+      .contadores:hover {
+      color: var(--btn-color);
+      background-color: var(--glow-color);color: #ffffff;
+      box-shadow: 0 0 1em .25em var(--glow-color),
+              0 0 4em 2em var(--glow-spread-color),
+              inset 0 0 .75em .25em var(--glow-color);
+      }
+
+      .contadores:active {
+      box-shadow: 0 0 0.6em .25em var(--glow-color),
+              0 0 2.5em 2em var(--glow-spread-color),
+              inset 0 0 .5em .25em var(--glow-color);
+      }
+        
+        
+        .btn-17,
+        .btn-17 *,
+        .btn-17 :after,
+        .btn-17 :before,
+        .btn-17:after,
+        .btn-17:before {
+          border: 0 solid;
+          box-sizing: border-box;
+        }
+
+        .btn-17 {
+          -webkit-tap-highlight-color: transparent;
+          appearance: button;
+          background-color: #000;
+          background-image: none;
+          color: #fff;
+          cursor: pointer;
+          font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+            Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+            Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+          font-size: 100%;
+          font-weight: 900;
+          line-height: 1.5;
+          margin: 0;
+          -webkit-mask-image: -webkit-radial-gradient(#000000, #fff);
+          padding: 0;
+          text-transform: uppercase;
+        }
+
+        .btn-17:disabled {
+          cursor: default;
+        }
+
+        .btn-17:-moz-focusring {
+          outline: auto;
+        }
+
+        .btn-17 svg {
+          display: block;
+          vertical-align: middle;
+        }
+
+        .btn-17 [hidden] {
+          display: none;
+        }
+
+        .btn-17 {
+          border-radius: 99rem;
+          border-width: 1px;
+          padding: 0.8rem 3rem;
+          z-index: 0;
+        }
+
+        .btn-17,
+        .btn-17 .text-container {
+          margin-top: -5px; padding-top: 10px;
+          min-height: 20px;
+          overflow: hidden;
+          position: relative;
+        }
+
+        .btn-17 .text-container {
+          display: block;padding-top: 5px;
+          mix-blend-mode: difference;
+        }
+
+        .btn-17 .text {
+          display: block;
+          position: relative;
+        }
+        
+        .btn-17:hover .text {
+          color: #fffdfd;
+          -webkit-animation: move-up-alternate 0.3s forwards;
+          animation: move-up-alternate 0.3s forwards;
+        }
+        .btn-17:hover {
+          background-color: #ffffff; /* Altera o fundo para branco */
+          color: #000000 !important; /* Altera a cor do texto para preto */
+        }
+        
+
+        @-webkit-keyframes move-up-alternate {
+          0% {
+            transform: translateY(0);
+          }
+
+          50% {
+            transform: translateY(80%);
+          }
+
+          51% {
+            transform: translateY(-80%);
+          }
+
+          to {
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes move-up-alternate {
+          0% {
+            transform: translateY(0);
+          }
+
+          50% {
+            transform: translateY(80%);
+          }
+
+          51% {
+            transform: translateY(-80%);
+          }
+
+          to {
+            transform: translateY(0);
+          }
+        }
+
+        
+        .btn-17:before {
+          --skew: 0.4;
+          background: #000000;
+          content: "";
+          display: block;
+          height: 104%;
+          left: calc(-50% - 50% * var (--skew));
+          pointer-events: none;
+          position: absolute;
+          top: -104%;
+          transform: skew(calc(150deg * var (--skew))) translateY(var (--progress, 0));
+          transition: transform 0.2s ease;
+          width: 100%;
+        }
+
+        .btn-17:after {
+          --progress: 0%;
+          left: calc(50% + 50% * var (--skew));
+          top: 102%;
+          z-index: -1;
+        }
+
+        .btn-17:hover:before {
+          --progress: 100%;
+        }
+
+        .btn-17:hover:after {
+          --progress: -102%;
+        }
+        #classListRoot {
+            min-width: 700px !important; /* ou o valor desejado */
+            background-image: url(https://github.com/Aritonemaii/Background/blob/main/bg3.png?raw=true);
+        }
+        #classList {
+            background-image: url(https://github.com/Aritonemaii/Background/blob/main/bg1.png?raw=true);
+            background-size: cover; /* ou 'contain', dependendo do comportamento que você deseja */
+            background-repeat: no-repeat;
+        }
+        #orphanClasses {
+            background-image: url(https://github.com/Aritonemaii/Background/blob/main/bg2.png?raw=true);
+            background-size: cover; /* ou 'contain', dependendo do comportamento que você deseja */
+            background-repeat: no-repeat;
+        }
+       
+         
+        .reset {
+          margin-left: 1680px;
+          margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+        background-color: #000;
+        color: #fff;
+        font-size: 20px;
+        border: 0.5px solid rgba(0, 0, 0, 0.1);
+        padding-bottom: 8px;
+        height: 65px;
+        padding: 12px;
+        border-radius: 15px 15px 12px 12px;
+        cursor: pointer;
+        position: relative;
+        will-change: transform;
+        transition: all .9s ease-in-out 0s;
+        user-select: none;
+        /* Add gradient shading to each side */
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+        background-position: bottom right, bottom right;
+        background-size: 100% 100%, 100% 100%;
+        background-repeat: no-repeat;
+        box-shadow: inset -4px -10px 0px rgba(255, 255, 255, 0.4),
+          inset -4px -8px 0px rgba(0, 0, 0, 0.3),
+          0px 2px 1px rgba(0, 0, 0, 0.3),
+          0px 2px 1px rgba(255, 255, 255, 0.1);
+        transform: perspective(70px) rotateX(5deg) rotateY(0deg);
+      }
+
+      .reset::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5));
+        z-index: -1;
+        border-radius: 15px;
+        box-shadow: inset 4px 0px 0px rgba(255, 255, 255, 0.1),
+          inset 4px -8px 0px rgba(0, 0, 0, 0.3);
+        transition: all .1s ease-in-out 0s;
+      }
+
+      .reset::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+        background-position: bottom right, bottom right;
+        background-size: 100% 100%, 100% 100%;
+        background-repeat: no-repeat;
+        z-index: -1;
+        border-radius: 15px;
+        transition: all .1s ease-in-out 0s;
+      }
+
+      .reset:active {
+        will-change: transform;
+        transform: perspective(80px) rotateX(5deg) rotateY(1deg) translateY(3px) scale(0.96);
+        height: 64px;
+        border: 0.25px solid rgba(0, 0, 0, 0.2);
+        box-shadow: inset -4px -8px 0px rgba(255, 255, 255, 0.2),
+          inset -4px -6px 0px rgba(0, 0, 0, 0.8),
+          0px 1px 0px rgba(0, 0, 0, 0.9),
+          0px 1px 0px rgba(255, 255, 255, 0.2);
+        transition: all .1s ease-in-out 0s;
+      }
+
+      .reset::after:active {
+        background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2));
+      }
+
+      .reset:active::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 5%;
+        left: 20%;
+        width: 50%;
+        height: 80%;
+        background-color: rgba(255, 255, 255, 0.1);
+        animation: overlay 0.1s ease-in-out 0s;
+        pointer-events: none;
+      }
+
+      .reset svg {
+        width: 15px;
+        height: 15px;
+      }
+
+      @keyframes overlay {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      .reset:focus {
+        outline: none;
+      }
+
+      .box-below-textarea {
+            width: 25px; /* Largura de 25px */
+            height: 15px; /* Altura de 15px */
+            background-color: black; /* Cor de fundo é preta para ser visível */
+            margin-top: 5px; /* Margem superior de 5px */
+        }
+        .tooltip {
+            position: fixed;
+            top: 27%;
+            left: 28.75%;
+            z-index: 9999;
+            cursor: pointer;
+            
+        }
+        .tooltip img {
+            width: 25px;
+            height: 25px;
+            --glow-color: rgb(90, 13, 13);
+          --glow-spread-color: rgba(167, 69, 69, 0.781);
+          --enhanced-glow-color: rgb(109, 5, 5);
+          --btn-color: rgb(119, 0, 0);
+          box-shadow: 0 0 0.5em .25em var(--glow-color),
+                  0 0 2em 1em var(--glow-spread-color),
+                  inset 0 0 .75em .25em var(--glow-color)
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 250px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            top: 120%;
+            right: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        /* Adicionando estilo para a classList */
+        #classList {
+            padding-top: 25px; /* Adiciona um pouco de espaço para a imagem */
+        }
+        .tooltip1 {
+            position: fixed;
+            top: 27%;
+            right: 31.3%;
+            z-index: 9999;
+            cursor: pointer;
+            
+        }
+        .tooltip1 img {
+            width: 25px;
+            height: 25px;
+            --glow-color: rgb(90, 13, 13);
+          --glow-spread-color: rgba(167, 69, 69, 0.781);
+          --enhanced-glow-color: rgb(109, 5, 5);
+          --btn-color: rgb(119, 0, 0);
+          box-shadow: 0 0 0.5em .25em var(--glow-color),
+                  0 0 2em 1em var(--glow-spread-color),
+                  inset 0 0 .75em .25em var(--glow-color)
+        }
+        .tooltip1 .tooltiptext {
+            visibility: hidden;
+            width: 250px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            top: 120%;
+            right: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip1:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        /* Adicionando estilo para a classList */
+        #classList {
+            padding-top: 25px; /* Adiciona um pouco de espaço para a imagem */
+        }
+        .tooltip2 {
+            position: fixed;
+            top: 27%;
+            right: 8.3%;
+            z-index: 9999;
+            cursor: pointer;
+            
+        }
+        .tooltip2 img {
+            width: 25px;
+            height: 25px;
+            --glow-color: rgb(90, 13, 13);
+          --glow-spread-color: rgba(167, 69, 69, 0.781);
+          --enhanced-glow-color: rgb(109, 5, 5);
+          --btn-color: rgb(119, 0, 0);
+          box-shadow: 0 0 0.5em .25em var(--glow-color),
+                  0 0 2em 1em var(--glow-spread-color),
+                  inset 0 0 .75em .25em var(--glow-color)
+        }
+        .tooltip2 .tooltiptext {
+            visibility: hidden;
+            width: 250px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            top: 120%;
+            right: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip2:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        /* Adicionando estilo para a classList */
+        #classList {
+            padding-top: 25px; /* Adiciona um pouco de espaço para a imagem */
+        }
+        
+        .custom-close-button {
+        margin-left: 2%; margin-bottom: 50%;
+        flex-direction: column;
+        align-items:center;
+        justify-content:center; text-align: center;
+        background-color: #000;
+        color: #fff;
+        font-size: 20px;
+        border: 0.5px solid rgba(0, 0, 0, 0.1);
+        padding-bottom: 8px; padding-right: 50%;
+        height: 65px; width: 95px;
+        padding: 12px;
+        border-radius: 15px 15px 12px 12px;
+        cursor: pointer;
+        position: relative;
+        will-change: transform;
+        transition: all 1s ease-in-out 0s;
+        user-select: none;
+        /* Add gradient shading to each side */
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+        background-position: bottom right, bottom right;
+        background-size: 100% 100%, 100% 100%;
+        background-repeat: no-repeat;
+        box-shadow: inset -4px -10px 0px rgba(255, 255, 255, 0.4),
+          inset -4px -8px 0px rgba(0, 0, 0, 0.3),
+          0px 2px 1px rgba(0, 0, 0, 0.3),
+          0px 2px 1px rgba(255, 255, 255, 0.1);
+        transform: perspective(70px) rotateX(5deg) rotateY(0deg);
+      }
+      .custom-close-button:hover{
+        text-shadow: 0 0 15px rgb(90, 13, 13);
+      }
+        
+      .custom-close-button::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5));
+        z-index: -1;
+        border-radius: 15px;
+        box-shadow: inset 4px 0px 0px rgba(255, 255, 255, 0.1),
+          inset 4px -8px 0px rgba(0, 0, 0, 0.3);
+        transition: all .6s ease-in-out 0s;
+      }
+
+        .custom-close-button:active {
+            opacity: 0.75;
+        }
+        .reset::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+          background-position: bottom right, bottom right;
+          background-size: 100% 100%, 100% 100%;
+          background-repeat: no-repeat;
+          z-index: -1;
+          border-radius: 15px;
+          transition: all .1s ease-in-out 0s;
+        }
+
+      .custom-close-button:active {
+        will-change: transform;
+        transform: perspective(80px) rotateX(5deg) rotateY(1deg) translateY(3px) scale(0.96);
+        height: 64px;
+        border: 0.25px solid rgba(0, 0, 0, 0.2);
+        box-shadow: inset -4px -8px 0px rgba(255, 255, 255, 0.2),
+          inset -4px -6px 0px rgba(0, 0, 0, 0.8),
+          0px 1px 0px rgba(0, 0, 0, 0.9),
+          0px 1px 0px rgba(255, 255, 255, 0.2);
+        transition: all .1s ease-in-out 0s;
+      }
+
+      .custom-close-button::after:active {
+        background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2));
+      }
+
+      .custom-close-button:active::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 5%;
+        left: 20%;
+        width: 50%;
+        height: 80%;
+        background-color: rgba(255, 255, 255, 0.1);
+        animation: overlay 0.1s ease-in-out 0s;
+        pointer-events: none;
+      }
+
+      .custom-close-button svg {
+        width: 15px;
+        height: 15px;
+      }
+
+
+
+      .custom-alert-box {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        width: 350px; /* Valor padronizado */
+        height: 150px; /* Valor padronizado */
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        padding: 20px;
+        background-image: url(https://github.com/Aritonemaii/Background/blob/main/alertbox.png?raw=true);
+        background-size: cover;
+        border: 2px solid #7a0909;
+        text-shadow: none;
+        border-radius: 10px;
+        color: #ffffff; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        font-size: 18px;
+      }
+
+    .porcentagem{ 
+        display:none; position: relative;
+        margin-top: -40px; margin-left: 910px; 
+        background-color: #000000; color: #ffffff; 
+        border: 1px solid #ccc; border-radius: 15px;
+        padding: 10px;  
+        height: 3px; width: 130px;
+    }
+    .back-button {
+  --btn-default-bg: rgb(41, 41, 41);
+  --btn-padding: 15px 20px;
+  --btn-hover-bg: rgb(51, 51, 51);
+  --btn-transition: .3s;
+  --btn-letter-spacing: .1rem;
+  --btn-animation-duration: 1.2s;
+  --btn-shadow-color: rgba(0, 0, 0, 0.137);
+  --btn-shadow: 0 2px 10px 0 var(--btn-shadow-color);
+  --hover-btn-color: #ff0000;
+  --default-btn-color: #fff;
+  --font-size: 16px;
+  /* 👆 this field should not be empty */
+  --font-weight: 600;
+  --font-family: Menlo,Roboto Mono,monospace;
+  /* 👆 this field should not be empty */
+}
+
+/* button settings 👆 */
+
+    .back-button {
+    margin-left: -1615px; margin-top: 5px; position: fixed;
+  box-sizing: border-box;
+  padding: var(--btn-padding);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--default-btn-color);
+  font: var(--font-weight) var(--font-size) var(--font-family);
+  background: var(--btn-default-bg);
+  border: none;
+  cursor: pointer;
+  transition: var(--btn-transition);
+  overflow: hidden;
+  box-shadow: var(--btn-shadow);
+  border-radius: 5px;text-align: center; padding-top: 25px;
+  border: 5px solid rgb(255, 0, 0);
+  filter: drop-shadow(0px 0px 10px rgb(255, 255, 255));
+  animation: flickering 2s linear infinite both;
+  text-transform: uppercase; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  background-color: rgb(0, 0, 0);
+  color: rgb(234, 234, 234); text-shadow: -2px -2px 0 #000, 1px -2px 0 #000, -2px 2px 0 #000, 1px 1px 0 #000;
+  font-weight: 700;
+  transition: 0.7s;
+  box-shadow: 0px 0px 90px #651f1f;
+  -webkit-box-reflect: below 1px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+}
+@keyframes flickering {
+            0%, 100% { opacity: 1; }
+            41.99% { opacity: 1; }
+            42% { opacity: 0; }
+            43% { opacity: 0; }
+            43.01% { opacity: 1; }
+            47.99% { opacity: 1; }
+            48% { opacity: 0; }
+            49% { opacity: 0; }
+            49.01% { opacity: 1; }
+        }
+
+.back-button span {
+  letter-spacing: var(--btn-letter-spacing);
+  transition: var(--btn-transition);
+  box-sizing: border-box;
+  position: relative;
+  background: inherit;
+}
+
+.back-button span::before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+  background: inherit;
+}
+
+.back-button:hover, .back-button:focus {
+  background: var(--btn-hover-bg);
+}
+
+.back-button:hover span, .back-button:focus span {
+  color: var(--hover-btn-color);
+}
+
+.back-button:hover span::before, .back-button:focus span::before {
+  animation: chitchat linear both var(--btn-animation-duration);
+}
+
+@keyframes chitchat {
+  0% {
+    content: "#";
+  }
+
+  5% {
+    content: ".";
+  }
+
+  10% {
+    content: "^{";
+  }
+
+  15% {
+    content: "-!";
+  }
+
+  20% {
+    content: "#$_";
+  }
+
+  25% {
+    content: "№:0";
+  }
+
+  30% {
+    content: "#{+.";
+  }
+
+  35% {
+    content: "@}-?";
+  }
+
+  40% {
+    content: "?{4@%";
+  }
+
+  45% {
+    content: "=.,^!";
+  }
+
+  50% {
+    content: "?2@%";
+  }
+
+  55% {
+    content: "\;1}]";
+  }
+
+  60% {
+    content: "?{%:%";
+    right: 0;
+  }
+
+  65% {
+    content: "|{f[4";
+    right: 0;
+  }
+
+  70% {
+    content: "{4%0%";
+    right: 0;
+  }
+
+  75% {
+    content: "'1_0<";
+    right: 0;
+  }
+
+  80% {
+    content: "{0%";
+    right: 0;
+  }
+
+  85% {
+    content: "]>'";
+    right: 0;
+  }
+
+  90% {
+    content: "4";
+    right: 0;
+  }
+
+  95% {
+    content: "2";
+    right: 0;
+  }
+
+  100% {
+    content: "";
+    right: 0;
+  }
+}
+  </style>
+</head>
+<body>
+    
+    <button class="reset" onclick="resetFileData()">Reset</button>
+  <label for="fileInput" class="btn-17 file-label" style="top: -40px;">
+      <span class="text-container">
+          <span class="text" style="min-width: 50px;">Escolher Arquivo</span>
+      </span>
+  </label>
+  <input type="file" id="fileInput" accept=".cpp" >
+  <div style="margin-bottom: 20px; margin-top: 20px;">
+      <button id="readButton" class="btn-17" style="display:none; top: -40px;" onclick="readFile()">
+          <span class="text-container">
+              <span class="text">Ler Arquivo</span>
+          </span>
+      </button>
+      <button id="generateSpawnableTypesButton" class="btn-17" style="display:none; top: -40px;" onclick="generateSpawnableTypes()">
+          <span class="text-container">
+              <span class="text">Gerar SpawnableTypes</span>
+          </span>
+      </button>      
+      <button id="includeOrphanClassesButton" class="btn-17" style="display:none; top: -40px;" onclick="includeOrphanClasses()">
+          <span class="text-container">
+              <span class="text">Incluir demais classes</span>
+          </span>
+      </button>
+      
+      <button id="changeChanceButton" class="btn-17" style="display:none; top: -40px; margin-bottom: -40px;" onclick="changeChance()">
+          <span class="text-container">
+              <span class="text">Spawnchance dos attachments das armas, de 1% a 100%.</span>
+          </span>
+      </button>
+      <button id="downloadButton" class="btn-17" style="display:none; top: -40px;" onclick="downloadUpdatedFile()">
+        <span class="text-container">
+            <span class="text" style="margin-left: 10px;">Download Arquivo Atualizado</span>
+        </span>
+      </button><br>
+      <input type="number" class="porcentagem" id="chanceInput" placeholder="Chance - 1 a 99%"  min="1" max="99">
+    </div>
+
+  <div id="container">
+    <div class="tooltip">
+      <img src="https://github.com/Aritonemaii/Background/blob/main/info.png?raw=true" alt="Info">
+      <span class="tooltiptext">Aqui, poderá ter até 2 tipos de divisões de classes: Primárias e Secundárias.
+        As classes primárias, são compostas por três palavras, intercaladas com o underscore, exemplo: A_B_C. Já a classe secundária, detém o mesmo início da classe primária,
+        mas adiciona, uma ou mais palavras, exemplo: A_B_C_Item1 ou A_B_C_Item_2. CUIDADO, se houver uma a classe A_B_C e se outra classe primária, for: A_C_B, para que esa tenha 
+        classes secundárias atreladas (no caso dos attachs de arma, por exemplo) deve haver essas classes criadas, por exemplo A_C_B_NomeDoItem.
+        Então cuide para que todas as secundárias, tenham o mesmo início de sua respectiva primária, assim como demonstrado no config.cpp de exemplo.
+      </span>
+    </div>
+      <textarea id="classList" readonly></textarea>
+      <div class="tooltip1">
+        <img src="https://github.com/Aritonemaii/Background/blob/main/info.png?raw=true" alt="Info">
+        <span class="tooltiptext">Aqui, você terá a visualização das types geradas, a partir do arquivo que importou. Altere como achar necessário e revise antes de incluir no jogo.
+          Por mais que foi testado por mais de 100x, ainda assim pode conter falhas.
+        </span>
+      </div>
+      <textarea id="classListRoot" style="width: 700px;"></textarea>
+      <div class="tooltip2">
+        <img src="https://github.com/Aritonemaii/Background/blob/main/info.png?raw=true" alt="Info">
+        <span class="tooltiptext">Aqui nós teremos a visualização das Classes Órfãs, que não se enquadram nas primárias nem nas secundárias, criando assim uma nova lista.
+          Para adicionar os itens desta lista no SpawnableTypes, basta clicar em "Incluir demais classes", assim que carregar o arquivo e gerar as classes.
+        </span>
+      </div>
+      <textarea id="orphanClasses" readonly></textarea>
+  </div>
+  <div id="contadores">
+    
+    <button class="contadores"  id="primarySecondaryCount" style="left: 210px; position: fixed; width: 320px; height: 45px;">Contador de Primárias e Secundárias</button>
+    
+    <button class="contadores"  id="typeCount" style="left: 875px; position: fixed; width: 155px; height: 45px;">Total de Spawnable geradas</button>
+    
+    <button class="contadores"  id="orphanCount" style="left: 1490px; position: fixed; width: 140px; height: 45px;">Total de classes gerais</button>
+  </div>
+  <button onclick="location.href='../index.html'" class="back-button">
+    <span>
+      Voltar à Home
+    </span>
+  </button>
+    <script>
+        let primaryClasses = [];
+        let secondaryClasses = [];
+        let orphanClasses = [];
+        let originalContent = '';
+        let modifiedContent = '';
+        let spawnableTypesContent = '';
+  
+        document.getElementById('fileInput').addEventListener('change', function() {
+            document.getElementById('readButton').style.display = 'inline-block';
+        });
+  
+        function readFile() {
+            const input = document.getElementById('fileInput');
+            const file = input.files[0];
+            if (!file) {
+                alert("Por favor, selecione um arquivo .cpp.");
+                return;
+            }
+  
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                originalContent = event.target.result;
+                displayClasses(originalContent);
+                document.getElementById('generateSpawnableTypesButton').style.display = 'inline-block';
+                document.getElementById('includeOrphanClassesButton').style.display = 'inline-block';
+                document.getElementById('changeChanceButton').style.display = 'inline-block';
+                document.getElementById('chanceInput').style.display = 'inline-block';
+            };
+            reader.readAsText(file);
+        }
+  
+        let spawnableTypesGenerated = false; // Flag para controlar a geração única
+  
+        function generateSpawnableTypes() {
+            if (!spawnableTypesGenerated) {
+                spawnableTypesContent = '';
+                primaryClasses.forEach(className => {
+                    spawnableTypesContent += `<type name="${className}">\n`;
+                    spawnableTypesContent += `\t<damage min="0.5" max="0.65" />\n`;
+                    spawnableTypesContent += `\t<attachments chance="1.0">\n`;
+                    secondaryClasses.forEach(secClassName => {
+                        const primaryParts = className.split('_');
+                        const secondaryParts = secClassName.split('_');
+                        if (primaryParts.length === 3 && secondaryParts.length === 4 &&
+                            primaryParts[0] === secondaryParts[0] &&
+                            primaryParts[1] === secondaryParts[1] &&
+                            primaryParts[2] === secondaryParts[2]) {
+                            spawnableTypesContent += `\t\t<item name="${secClassName}" chance="0.15" />\n`;
+                        }
+                    });
+                    spawnableTypesContent += `\t</attachments>\n`;
+                    spawnableTypesContent += `</type>\n\n`;
+                });
+                document.getElementById('classListRoot').value = spawnableTypesContent;
+                document.getElementById('downloadButton').style.display = 'inline-block';
+  
+                const totalPrimaryClasses = primaryClasses.length;
+                const totalSecondaryClasses = secondaryClasses.length;
+                const totalOrphanClasses = orphanClasses.length;
+                customAlert(`Classes primárias adicionadas: ${totalPrimaryClasses}<br />Classes secundárias adicionadas: ${totalSecondaryClasses}`);
+  
+                spawnableTypesGenerated = true;
+  
+                updateTypeCount();
+            } else {
+              customAlert("Os SpawnableTypes já foram gerados.");
+            }
+        }
+  
+        function displayClasses(content) {
+            const lines = content.split('\n');
+            const classPattern = /class\s+(\w+)\s*:/;
+            let classList = document.getElementById('classList');
+            classList.value = '';
+            primaryClasses = [];
+            secondaryClasses = [];
+            orphanClasses = [];
+  
+            const classGroups = {};
+  
+            lines.forEach(line => {
+                const match = line.match(classPattern);
+                if (match) {
+                    const className = match[1];
+                    const parts = className.split('_');
+                    if (parts.length === 3) {
+                        primaryClasses.push(className);
+                        classGroups[className] = [];
+                    } else {
+                        secondaryClasses.push(className);
+                    }
+                }
+            });
+  
+            secondaryClasses = secondaryClasses.filter(secClass => {
+                const parts = secClass.split('_');
+                const potentialPrimary = `${parts[0]}_${parts[1]}_${parts[2]}`;
+                const foundPrimary = primaryClasses.find(pc => pc === potentialPrimary);
+  
+                if (foundPrimary) {
+                    classGroups[foundPrimary].push(secClass);
+                    return true;
+                } else {
+                    orphanClasses.push(secClass);
+                    return false;
+                }
+            });
+  
+            for (const primaryClassName of primaryClasses) {
+                classList.value += `Primária: ${primaryClassName}\n`;
+                for (const secondaryClassName of classGroups[primaryClassName]) {
+                    classList.value += `  Secundária: ${secondaryClassName}\n`;
+                }
+            }
+  
+            const orphanClassesTextArea = document.getElementById('orphanClasses');
+            orphanClassesTextArea.value = 'Demais classes:\n';
+            orphanClasses.forEach(className => {
+                orphanClassesTextArea.value += `${className}\n`;
+            });
+  
+            updatePrimarySecondaryCount();
+            updateOrphanCount();
+            updateTypeCount();
+        }
+  
+        let orphanClassesIncluded = false;
+  
+      function includeOrphanClasses() {
+          if (!orphanClassesIncluded) {
+              if (orphanClasses.length > 0) {
+                  orphanClasses.forEach(orphanClass => {
+                      spawnableTypesContent += `<type name="${orphanClass}">\n`;
+                      spawnableTypesContent += `\t<damage min="0.5" max="0.65" />\n`;
+                      spawnableTypesContent += `\t<attachments chance="1.0">\n`;
+                      spawnableTypesContent += `\t</attachments>\n`;
+                      spawnableTypesContent += `</type>\n\n`;
+                  });
+                  document.getElementById('classListRoot').value = spawnableTypesContent;
+                  orphanClassesIncluded = true;
+                  customAlert("Classes órfãs incluídas com sucesso.");
+              } else {
+                customAlert("Não há classes órfãs para incluir. Revise seu arquivo, se necessário.");
+              }
+          } else {
+            customAlert("As classes órfãs já foram inclusas.");
+          }
+          updateTypeCount(); // Atualiza o contador de tipos
+      }
+  
+        function updatePrimarySecondaryCount() {
+            const totalPrimaryClasses = primaryClasses.length;
+            const totalSecondaryClasses = secondaryClasses.length;
+            const countButton = document.getElementById('primarySecondaryCount');
+            countButton.textContent = `Primárias: ${totalPrimaryClasses} | Secundárias: ${totalSecondaryClasses}`;
+        }
+  
+        function updateOrphanCount() {
+            const totalOrphanClasses = orphanClasses.length;
+            const countButton = document.getElementById('orphanCount');
+            countButton.textContent = `Órfãs: ${totalOrphanClasses}`;
+        }
+  
+        function updateTypeCount() {
+            const lines = spawnableTypesContent.split('\n');
+            let typeCount = 0;
+            lines.forEach(line => {
+                if (line.includes('<type name="')) {
+                    typeCount++;
+                }
+            });
+            const countButton = document.getElementById('typeCount');
+            countButton.textContent = `Types total: ${typeCount}`;
+        }
+  
+        function changeChance() {
+            const chanceInput = document.getElementById('chanceInput').value;
+            const percentage = parseFloat(chanceInput) / 100;
+            const spawnTypesLines = spawnableTypesContent.split('\n');
+            const updatedLines = spawnTypesLines.map(line => {
+                if (line.includes('<item name="')) {
+                    return line.replace(/chance="[^"]+"/, `chance="${percentage}"`);
+                }
+                return line;
+            });
+            spawnableTypesContent = updatedLines.join('\n');
+            document.getElementById('classListRoot').value = spawnableTypesContent;
+        }
+  
+        function resetFileData() {
+            document.getElementById('fileInput').value = '';
+            document.getElementById('readButton').style.display = 'none';
+            document.getElementById('generateSpawnableTypesButton').style.display = 'none';
+            document.getElementById('includeOrphanClassesButton').style.display = 'none';
+            document.getElementById('changeChanceButton').style.display = 'none';
+            document.getElementById('downloadButton').style.display = 'none';
+            document.getElementById('classList').value = '';
+            document.getElementById('classListRoot').value = '';
+            document.getElementById('orphanClasses').value = '';
+            document.getElementById('chanceInput').style.display = 'none';
+            document.getElementById('chanceInput').value = '';
+            originalContent = '';
+            modifiedContent = '';
+            spawnableTypesContent = '';
+            primaryClasses = [];
+            secondaryClasses = [];
+            orphanClasses = [];
+            spawnableTypesGenerated = false; // Reset flag
+            orphanClassesIncluded = false; // Reset flag
+            updatePrimarySecondaryCount();
+            updateOrphanCount();
+            updateTypeCount();
+        }
+  
+        function downloadUpdatedFile() {
+          const blob = new Blob([spawnableTypesContent], { type: 'text/plain' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'SpawnableTypes.xml';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+      }
+      function customAlert(message, buttonText = 'OK') {
+      // restante da implementação de customAlert...
+  
+      const alertBox = document.createElement('div');
+      alertBox.innerHTML = message.replaceAll('\n', '<br />');
+      alertBox.className = 'custom-alert-box';
+              
+            // Adicionei para melhorar visualização do texto
+            alertBox.innerHTML = `<span style="display:block;text-align:center;margin-bottom:10px;"> Ari's Spawnabletyper: <br /><br /> ${message}</span>`;
+  
+            const buttonContainer = document.createElement('div');
+            buttonContainer.style.textAlign = 'center'; // Centraliza o botão horizontalmente
+  
+            const closeButton = document.createElement('button');
+            closeButton.innerText = buttonText;
+            closeButton.className = 'custom-close-button'; // Adicionada a classe aqui
+            closeButton.onclick = function() {
+              setTimeout(function() {document.body.removeChild(alertBox); }, 1000); // 2000 milissegundos = 2 segundos
+            };
+  
+                  buttonContainer.appendChild(closeButton);
+                  alertBox.appendChild(buttonContainer);
+                  document.body.appendChild(alertBox);
+              }
+      </script>
+</body>
+</html>

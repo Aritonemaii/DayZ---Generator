@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ2QP0ZQ05"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CZ2QP0ZQ05');
+  </script>
+    <title>Gerador Trader</title>
+    <style>
+        body{
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://github.com/Aritonemaii/Background/blob/main/fundo%20real.gif?raw=true');
+            background-attachment: fixed;
+            height: 95vh;
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: repeat; 
+            color: #ffffff;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+        .back-button {
+          --btn-default-bg: rgb(41, 41, 41);
+          --btn-padding: 15px 20px;
+          --btn-hover-bg: rgb(51, 51, 51);
+          --btn-transition: .3s;
+          --btn-letter-spacing: .1rem;
+          --btn-animation-duration: 1.2s;
+          --btn-shadow-color: rgba(0, 0, 0, 0.137);
+          --btn-shadow: 0 2px 10px 0 var(--btn-shadow-color);
+          --hover-btn-color: #ff0000;
+          --default-btn-color: #fff;
+          --font-size: 16px;
+          --font-weight: 600;
+          --font-family: Menlo,Roboto Mono,monospace;
+        }
+
+        .back-button {
+            margin-left: -1700px; margin-top: 5px;
+            box-sizing: border-box;
+            padding: var(--btn-padding);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--default-btn-color);
+            font: var(--font-weight) var(--font-size) var(--font-family);
+            background: var(--btn-default-bg);
+            border: none;
+            cursor: pointer;
+            transition: var(--btn-transition);
+            overflow: hidden;
+            box-shadow: var(--btn-shadow);
+            border-radius: 5px;text-align: center; padding-top: 25px;
+            border: 5px solid rgb(255, 0, 0);
+            filter: drop-shadow(0px 0px 10px rgb(255, 255, 255));
+            animation: flickering 2s linear infinite both;
+            text-transform: uppercase; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            background-color: rgb(0, 0, 0);
+            color: rgb(234, 234, 234); text-shadow: -2px -2px 0 #000, 1px -2px 0 #000, -2px 2px 0 #000, 1px 1px 0 #000;
+            font-weight: 700;
+            transition: 0.7s;
+            box-shadow: 0px 0px 90px #651f1f;
+            -webkit-box-reflect: below 1px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+        }
+        @keyframes flickering {
+            0%, 100% { opacity: 1; }
+            41.99% { opacity: 1; }
+            42% { opacity: 0; }
+            43% { opacity: 0; }
+            43.01% { opacity: 1; }
+            47.99% { opacity: 1; }
+            48% { opacity: 0; }
+            49% { opacity: 0; }
+            49.01% { opacity: 1; }
+        }
+
+        .back-button span {
+            letter-spacing: var(--btn-letter-spacing);
+            transition: var(--btn-transition);
+            box-sizing: border-box;
+            position: relative;
+            background: inherit;
+        }
+
+        .back-button span::before {
+            box-sizing: border-box;
+            position: absolute;
+            content: "";
+            background: inherit;
+        }
+
+        .back-button:hover, .back-button:focus {
+            background: var(--btn-hover-bg);
+        }
+
+        .back-button:hover span, .back-button:focus span {
+            color: var(--hover-btn-color);
+        }
+
+        .back-button:hover span::before, .back-button:focus span::before {
+            animation: chitchat linear both var(--btn-animation-duration);
+        }
+
+        @keyframes chitchat {
+        0% {
+            content: "#";
+        }
+
+        5% {
+            content: ".";
+        }
+
+        10% {
+            content: "^{";
+        }
+
+        15% {
+            content: "-!";
+        }
+
+        20% {
+            content: "#$_";
+        }
+
+        25% {
+            content: "№:0";
+        }
+
+        30% {
+            content: "#{+.";
+        }
+
+        35% {
+            content: "@}-?";
+        }
+
+        40% {
+            content: "?{4@%";
+        }
+
+        45% {
+            content: "=.,^!";
+        }
+
+        50% {
+            content: "?2@%";
+        }
+
+        55% {
+            content: "\;1}]";
+        }
+
+        60% {
+            content: "?{%:%";
+            right: 0;
+        }
+
+        65% {
+            content: "|{f[4";
+            right: 0;
+        }
+
+        70% {
+            content: "{4%0%";
+            right: 0;
+        }
+
+        75% {
+            content: "'1_0<";
+            right: 0;
+        }
+
+        80% {
+            content: "{0%";
+            right: 0;
+        }
+
+        85% {
+            content: "]>'";
+            right: 0;
+        }
+
+        90% {
+            content: "4";
+            right: 0;
+        }
+
+        95% {
+            content: "2";
+            right: 0;
+        }
+
+        100% {
+            content: "";
+            right: 0;
+        }
+        }
+
+        .resultado{
+            max-width: 750px;
+            max-height: 680px; /* Defina a altura máxima desejada para a tabela */
+            overflow-y: auto; /* Adicione uma barra de rolagem vertical quando necessário */
+            
+        }
+        .resultado th, .resultado td {
+            border: 1px solid #444444;
+            padding: 10px;
+        }
+
+        .resultado th {
+            background-color: #1f1e1e;
+        }
+
+        .resultado td {
+            background-color: #2c2c2c;
+        }
+
+        .resultado tr:nth-child(even) {
+            background-color: #3b3b3b;
+        }
+
+        .resultado tr:hover {
+            background-color: #555555;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        .botoes {
+            --red: #b30000;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            font-size: 15px; cursor: pointer;
+            padding: 0.7em 2.7em;
+            letter-spacing: 0.06em;
+            position: relative; min-height: 45px;
+            font-family: inherit;
+            border-radius: 0.6em;
+            overflow: hidden;
+            transition: all 0.3s; margin-top: -70px;
+            line-height: 1.4em;
+            border: 2px solid var(--red);
+            background: linear-gradient(to right, rgba(179, 0, 0, 0.1) 1%, transparent 40%, transparent 60%, rgba(179, 0, 0, 0.1) 100%);
+            color: var(--white);
+            box-shadow: inset 0 0 10px rgba(179, 0, 0, 0.4), 0 0 9px 3px rgba(179, 0, 0, 0.1);
+        }
+
+        .botoes:hover {
+            color: #ff4d4d;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            box-shadow: inset 0 0 10px rgba(179, 0, 0, 0.6), 0 0 9px 3px rgba(179, 0, 0, 0.2);
+            
+        }
+
+        .botoes:before {
+            content: "";text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            position: absolute;
+            left: -4em;
+            width: 5em;
+            height: 100%;
+            top: 0;
+            transition: transform .4s ease-in-out;
+            background: linear-gradient(to right, transparent 1%, rgba(179, 0, 0, 0.1) 40%, rgba(179, 0, 0, 0.1) 60%, transparent 100%);
+        }
+
+        .botoes:hover:before {
+            transform: translateX(15em);
+        }
+        select#categoria {
+            color: #ffffff; /* Cor do texto */
+            background-color: transparent; /* Cor de fundo */
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Contorno preto */
+            border: 2px solid #b30000; /* Borda vermelha */
+            padding: 0.7em 2.7em; /* Espaçamento interno */
+            font-size: 15px; /* Tamanho da fonte */
+            font-family: inherit; /* Fonte herdada */
+            border-radius: 0.6em; /* Borda arredondada */
+            outline: none; /* Remove o contorno padrão */
+            -webkit-appearance: none; /* Remove a seta padrão no Chrome */
+            -moz-appearance: none; /* Remove a seta padrão no Firefox */
+            appearance: none; /* Remove a seta padrão no restante dos navegadores */
+        }
+
+        select#categoria option {
+            background-color: #000; /* Cor de fundo das opções */
+            color: #ff4d4d; /* Cor do texto das opções */
+        }
+        .alerta-personalizado{
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 350px; /* Valor padronizado */
+            height: 150px; /* Valor padronizado */
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            padding: 20px;
+            background-image: url(https://github.com/Aritonemaii/Background/blob/main/alertbox.png?raw=true);
+            background-size: cover;
+            border: 2px solid #7a0909;
+            text-shadow: none;
+            border-radius: 10px;
+            color: #ffffff; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            font-size: 18px;
+        }
+        .reset {
+            margin-left: 1680px;
+            top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+            background-color: #000;
+            color: #fff;
+            font-size: 20px;
+            border: 0.5px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 8px;
+            height: 65px;
+            padding: 12px;
+            border-radius: 15px 15px 12px 12px;
+            cursor: pointer;
+            position: relative;
+            will-change: transform;
+            transition: all .9s ease-in-out 0s;
+            user-select: none;
+            /* Add gradient shading to each side */
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+            background-position: bottom right, bottom right;
+            background-size: 100% 100%, 100% 100%;
+            background-repeat: no-repeat;
+            box-shadow: inset -4px -10px 0px rgba(255, 255, 255, 0.4),
+            inset -4px -8px 0px rgba(0, 0, 0, 0.3),
+            0px 2px 1px rgba(0, 0, 0, 0.3),
+            0px 2px 1px rgba(255, 255, 255, 0.1);
+            transform: perspective(70px) rotateX(5deg) rotateY(0deg);
+        }
+
+        .reset::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5));
+            z-index: -1;
+            border-radius: 15px;
+            box-shadow: inset 4px 0px 0px rgba(255, 255, 255, 0.1),
+            inset 4px -8px 0px rgba(0, 0, 0, 0.3);
+            transition: all .1s ease-in-out 0s;
+        }
+
+        .reset::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+            background-position: bottom right, bottom right;
+            background-size: 100% 100%, 100% 100%;
+            background-repeat: no-repeat;
+            z-index: -1;
+            border-radius: 15px;
+            transition: all .1s ease-in-out 0s;
+        }
+
+        .reset:active {
+            will-change: transform;
+            transform: perspective(80px) rotateX(5deg) rotateY(1deg) translateY(3px) scale(0.96);
+            height: 64px;
+            border: 0.25px solid rgba(0, 0, 0, 0.2);
+            box-shadow: inset -4px -8px 0px rgba(255, 255, 255, 0.2),
+            inset -4px -6px 0px rgba(0, 0, 0, 0.8),
+            0px 1px 0px rgba(0, 0, 0, 0.9),
+            0px 1px 0px rgba(255, 255, 255, 0.2);
+            transition: all .1s ease-in-out 0s;
+        }
+
+        .reset::after:active {
+            background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2));
+        }
+
+        .reset:active::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 5%;
+            left: 20%;
+            width: 50%;
+            height: 80%;
+            background-color: rgba(255, 255, 255, 0.1);
+            animation: overlay 0.1s ease-in-out 0s;
+            pointer-events: none;
+        }
+
+        .reset svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        @keyframes overlay {
+            from {
+            opacity: 0;
+            }
+
+            to {
+            opacity: 1;
+            }
+        }
+
+        .reset:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="location.href='../index.html'" class="back-button"><span>Voltar à Home</span></button>
+    <button class="reset" onclick="resetFileData()">Reset</button><br><br><br><br><br><br>
+    <input type="file" id="arquivoInput" accept=".cpp" style="display: none;">
+    <button id="anexarArquivoBtn" class="botoes" style="margin-top: -180px;">Anexar Arquivo</button><br><br><br><br><br>
+    <div class="button-container">
+        <button class="botoes" onclick="extrairNomeDasClasses()">Gerar arquivo Trader</button>
+        <select id="categoria" class="botoes" onchange="selecionarCategoria()">
+            <option value="" disabled selected hidden>Selecione uma categoria</option>
+            <option value="Geral">Geral</option>
+            <option value="Armas">Armas</option>
+            <option value="Veiculos">Veiculos</option>
+            <option value="Veiculos sem chave">Veiculos sem chave</option>
+            <option value="Magazines">Magazines</option>
+            <option value="Carne">Carne</option>
+            <option value="Copia de Chave">Copia de Chave</option>
+        </select>
+        <button class="botoes" onclick="copiarPlanilha()">Copiar Trader</button>
+        <div id="alertaPersonalizado" class="alerta-personalizado"></div>
+    </div>
+    <br>
+
+    <div id="resultado" class="resultado"></div>
+    
+    <script>
+      function extrairNomeDasClasses() {
+          var arquivoInput = document.getElementById('arquivoInput');
+          var arquivo = arquivoInput.files[0];
+
+          var leitor = new FileReader();
+          leitor.onload = function(evento) {
+              var conteudo = evento.target.result;
+              var padrao = /class\s+(\w+)\s*:\s+[^{]+{/g;
+              var matches;
+              var classes = [];
+
+              while ((matches = padrao.exec(conteudo)) !== null) {
+                  classes.push(matches[1]);
+              }
+
+              var tabela = '<table>';
+              tabela += '<tr><th>Nomes das Classes</th><th>Tipo</th><th>Valor de compra</th><th>Valor de venda</th></tr>';
+              for (var i = 0; i < classes.length; i++) {
+                  tabela += '<tr><td>' + classes[i] + ',</td><td></td><td contenteditable="true" oninput="adicionarVirgula(this)">100,</td><td contenteditable="true">100</td></tr>';
+              }
+              tabela += '</table>';
+
+              var resultado = document.getElementById('resultado');
+              resultado.innerHTML = tabela;
+          };
+          leitor.readAsText(arquivo);
+      }
+
+      function selecionarCategoria() {
+          var categoriaSelecionada = document.getElementById('categoria').value;
+          var tabela = document.querySelector('table');
+          var linhas = tabela.getElementsByTagName('tr');
+          
+          for (var i = 1; i < linhas.length; i++) {
+              var tipo = '';
+
+              switch (categoriaSelecionada) {
+                  case 'Geral':
+                      tipo = '*,';
+                      break;
+                  case 'Armas':
+                      tipo = 'W,';
+                      break;
+                  case 'Veiculos':
+                      tipo = 'V,';
+                      break;
+                  case 'Veiculos sem chave':
+                      tipo = 'VNK,';
+                      break;
+                  case 'Magazines':
+                      tipo = 'M,';
+                      break;
+                  case 'Carne':
+                      tipo = 'S,';
+                      break;
+                  case 'Copia de Chave':
+                      tipo = 'K,';
+                      break;
+                  default:
+                      tipo = '';
+                      break;
+              }
+
+              linhas[i].getElementsByTagName('td')[1].innerText = tipo;
+          }
+      }
+
+      function copiarPlanilha() {
+    var arquivoInput = document.getElementById('arquivoInput');
+    var categoriaSelecionada = document.getElementById('categoria').value;
+
+    // Verificar se o arquivo foi anexado e uma categoria foi selecionada
+    if (arquivoInput.files.length === 0 || categoriaSelecionada === '') {
+        customAlert("Ari's Trader Generator<br><br><br> Escolha o arquivo e após anexar, você deve selecionar a categoria para então, copiar o trader.");
+        return;
+    }
+
+    var resultadoDiv = document.getElementById('resultado');
+    var rangeSelecao = document.createRange();
+    rangeSelecao.selectNode(resultadoDiv);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(rangeSelecao);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+
+    // Verificar se houve realmente algo copiado
+    if (window.getSelection().toString().length > 0) {
+      customAlert("Ari's Trader Generator Nada foi copiado. Verifique se há algo para copiar.");
+    } else {
+      customAlert("Ari's Trader Generator<br><br><br>Trader copiado, basta adicionar no script do teu servidor!");
+        
+    }
+}
+
+
+    function customAlert(message) {
+        var alertaPersonalizado = document.getElementById('alertaPersonalizado');
+        alertaPersonalizado.innerHTML = message;
+        alertaPersonalizado.style.display = "block"; // Exibe o alerta
+
+        // Ocultar o alerta após um período de tempo (por exemplo, 3 segundos)
+        setTimeout(function() {
+            alertaPersonalizado.style.display = "none";
+        }, 4500); // 3000 milissegundos = 3 segundos
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Ocultar o alerta personalizado no carregamento da página
+        var alertaPersonalizado = document.getElementById('alertaPersonalizado');
+        alertaPersonalizado.style.display = "none";
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Ocultar o alerta personalizado no carregamento da página
+        var alertaPersonalizado = document.getElementById('alertaPersonalizado');
+        alertaPersonalizado.style.display = "none";
+    });
+
+      function adicionarVirgula(elemento) {
+          var valor = elemento.textContent;
+          if (!valor.endsWith(',')) {
+              elemento.textContent = valor + ',';
+          }
+      }
+      document.getElementById('anexarArquivoBtn').addEventListener('click', function() {
+        console.log("Botão de anexar arquivo clicado!");
+        document.getElementById('arquivoInput').click();
+    });
+    function resetFileData() {
+    // Limpar o conteúdo da tabela de resultados
+    document.getElementById('resultado').innerHTML = '';
+
+    // Limpar a seleção do arquivo
+    document.getElementById('arquivoInput').value = '';
+
+    // Resetar a seleção da categoria
+    document.getElementById('categoria').selectedIndex = 0;
+
+    // Ocultar o alerta personalizado
+    var alertaPersonalizado = document.getElementById('alertaPersonalizado');
+    alertaPersonalizado.style.display = "none";
+}
+  </script>
+</body>
+</html>

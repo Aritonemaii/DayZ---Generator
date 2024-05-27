@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ2QP0ZQ05"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CZ2QP0ZQ05');
+  </script>
+    <title>Criador de Types</title>
+    <style>
+        html::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw; /* Use 100vw para ocupar 100% da largura da janela */
+            height: 100vh; /* Use 100vh para ocupar 100% da altura da janela */
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://github.com/Aritonemaii/Background/blob/main/fundo%20real.gif?raw=true');
+            background-size: cover;
+            background-repeat: repeat;
+            background-attachment: fixed;
+            z-index: -1; /* Coloque o efeito de vinheta atrás de todo o conteúdo */
+        }
+
+        body {
+            color: white; /* Defina a cor do texto para branco */
+            font-size: 18px;
+            font-family: Arial, sans-serif; /* Altere a fonte conforme necessário */
+            text-shadow: 
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,
+                -1px  1px 0 #000,
+                 1px  1px 0 #000; /* Contorno preto */
+            padding: 10px; /* Espaçamento interno */
+            display: inline-block; /* Para que a largura se ajuste ao conteúdo */
+        }
+
+        .color_text {
+            color: #fff; /* Cor do texto */
+            padding: 10px; /* Espaçamento interno */
+            display: inline-block; /* Para que a largura se ajuste ao conteúdo */
+        }
+
+        .nominal {
+            color: rgb(255, 255, 255); /* Cor vermelha para o texto "Escolha o valor nominal:" */
+        }
+        .geral {
+            color: rgb(255, 255, 255); /* Cor vermelha para o texto "Escolha o valor nominal:" */
+        }
+        .min {
+            color: rgb(255, 255, 255); /* Cor vermelha para o texto "Escolha o valor nominal:" */
+        }
+        .max {
+            color: rgb(255, 255, 255); /* Cor vermelha para o texto "Escolha o valor nominal:" */
+        }
+
+        #resultado {
+            white-space: pre-wrap; /* Mantém as quebras de linha no texto */
+            max-height: 680px; max-width: 900px;
+            overflow-y: auto; /* Adicione uma barra de rolagem vertical quando necessário */
+            margin-left: 900px;  margin-top: -510px; background-color: rgba(0, 0, 0, 0.301);
+            border: #7e7e7e solid; padding-left: 15px; padding-top: 10px;
+          }
+
+        #resumo {
+            float: right;
+            text-align: right;
+        }
+
+        .descritivo_itens {
+            border: 2px solid #910808; 
+            padding: 10px; 
+            margin-left: 450px; 
+            margin-top: -40px;
+            width: 400px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            text-transform: uppercase;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: 500;
+            text-shadow: none;
+            background: rgb(255, 255, 255);
+            cursor: pointer;
+            box-shadow: transparent;
+            border: 1px solid #ffffff80;
+            transition: 1s ease;
+            user-select:auto;
+            color: #00000080;
+            margin-top: 10px;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            color: #ffffff;
+            background: #ff0000;
+            border: 1px solid #000000;
+            text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+            box-shadow: 0 0 5px #ff0800, 0 0 20px #ff0800, 0 0 50px #ff0800,
+                0 0 100px #008cff;  
+        }
+
+        .total {
+            margin-top: -60px; 
+            align-items: center;
+        }
+
+        .radio-input input {
+            display: none;
+        }
+
+        .radio-input {
+            --container_width: 400px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            border-radius: 9999px;
+            background-color: #fff;
+            color: #000000;
+            width: var(--container_width);
+            overflow: hidden;
+            border: 1px solid rgba(53, 52, 52, 0.226);
+        }
+
+        .radio-input label {
+            width: 100%;
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            font-weight: 600;
+            letter-spacing: 0px;
+            font-size: 14px;
+            text-shadow: none; /* Remover o contorno preto apenas das letras */
+        }
+
+        .selection {
+            display: none;
+            position: absolute;
+            height: 100%;
+            width: calc(var(--container_width) / 4);
+            z-index: 0;
+            left: 0;
+            top: 0;
+            transition: .5s ease;
+        }
+
+        .radio-input label:has(input:checked) {
+            color: #fff;
+        }
+
+        .radio-input label:has(input:checked) ~ .selection {
+            background-color: rgb(223, 11, 11);
+            display: inline-block;
+        }
+
+        .radio-input label:nth-child(1):has(input:checked) ~ .selection {
+            transform: translateX(calc(var(--container_width) * 0/4));
+        }
+
+        .radio-input label:nth-child(2):has(input:checked) ~ .selection {
+            transform: translateX(calc(var(--container_width) * 1/4));
+        }
+
+        .radio-input label:nth-child(3):has(input:checked) ~ .selection {
+            transform: translateX(calc(var(--container_width) * 2/4));
+        }
+
+        .radio-input label:nth-child(4):has(input:checked) ~ .selection {
+            transform: translateX(calc(var(--container_width) * 3/4));
+        }
+        .totaltypes{
+            margin-left: 490px; margin-top: -30px;
+        }
+ .back-button {
+  --btn-default-bg: rgb(41, 41, 41);
+  --btn-padding: 15px 20px;
+  --btn-hover-bg: rgb(51, 51, 51);
+  --btn-transition: .3s;
+  --btn-letter-spacing: .1rem;
+  --btn-animation-duration: 1.2s;
+  --btn-shadow-color: rgba(0, 0, 0, 0.137);
+  --btn-shadow: 0 2px 10px 0 var(--btn-shadow-color);
+  --hover-btn-color: #ff0000;
+  --default-btn-color: #fff;
+  --font-size: 16px;
+  /* 👆 this field should not be empty */
+  --font-weight: 600;
+  --font-family: Menlo,Roboto Mono,monospace;
+  /* 👆 this field should not be empty */
+}
+
+/* button settings 👆 */
+
+  .back-button {
+    margin-left: 10px; margin-top: 5px;
+    box-sizing: border-box;
+    padding: var(--btn-padding);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--default-btn-color);
+    font: var(--font-weight) var(--font-size) var(--font-family);
+    background: var(--btn-default-bg);
+    border: none;
+    cursor: pointer;
+    transition: var(--btn-transition);
+    overflow: hidden;
+    box-shadow: var(--btn-shadow);
+    border-radius: 5px;text-align: center; padding-top: 25px;
+    border: 5px solid rgb(255, 0, 0);
+    filter: drop-shadow(0px 0px 10px rgb(255, 255, 255));
+    animation: flickering 2s linear infinite both;
+    text-transform: uppercase; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    background-color: rgb(0, 0, 0);
+    color: rgb(234, 234, 234); text-shadow: -2px -2px 0 #000, 1px -2px 0 #000, -2px 2px 0 #000, 1px 1px 0 #000;
+    font-weight: 700;
+    transition: 0.7s;
+    box-shadow: 0px 0px 90px #651f1f;
+    -webkit-box-reflect: below 1px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+  }
+  @keyframes flickering {
+    0%, 100% { opacity: 1; }
+    41.99% { opacity: 1; }
+    42% { opacity: 0; }
+    43% { opacity: 0; }
+    43.01% { opacity: 1; }
+    47.99% { opacity: 1; }
+    48% { opacity: 0; }
+    49% { opacity: 0; }
+    49.01% { opacity: 1; }
+  }
+
+.back-button span {
+  letter-spacing: var(--btn-letter-spacing);
+  transition: var(--btn-transition);
+  box-sizing: border-box;
+  position: relative;
+  background: inherit;
+}
+
+.back-button span::before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+  background: inherit;
+}
+
+.back-button:hover, .back-button:focus {
+  background: var(--btn-hover-bg);
+}
+
+.back-button:hover span, .back-button:focus span {
+  color: var(--hover-btn-color);
+}
+
+.back-button:hover span::before, .back-button:focus span::before {
+  animation: chitchat linear both var(--btn-animation-duration);
+}
+
+@keyframes chitchat {
+  0% {
+    content: "#";
+  }
+
+  5% {
+    content: ".";
+  }
+
+  10% {
+    content: "^{";
+  }
+
+  15% {
+    content: "-!";
+  }
+
+  20% {
+    content: "#$_";
+  }
+
+  25% {
+    content: "№:0";
+  }
+
+  30% {
+    content: "#{+.";
+  }
+
+  35% {
+    content: "@}-?";
+  }
+
+  40% {
+    content: "?{4@%";
+  }
+
+  45% {
+    content: "=.,^!";
+  }
+
+  50% {
+    content: "?2@%";
+  }
+
+  55% {
+    content: "\;1}]";
+  }
+
+  60% {
+    content: "?{%:%";
+    right: 0;
+  }
+
+  65% {
+    content: "|{f[4";
+    right: 0;
+  }
+
+  70% {
+    content: "{4%0%";
+    right: 0;
+  }
+
+  75% {
+    content: "'1_0<";
+    right: 0;
+  }
+
+  80% {
+    content: "{0%";
+    right: 0;
+  }
+
+  85% {
+    content: "]>'";
+    right: 0;
+  }
+
+  90% {
+    content: "4";
+    right: 0;
+  }
+
+  95% {
+    content: "2";
+    right: 0;
+  }
+
+  100% {
+    content: "";
+    right: 0;
+  }
+}
+.reset {
+          margin-left: 1720px;
+          margin-top: -30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+        background-color: #000;
+        color: #fff;
+        font-size: 20px;
+        border: 0.5px solid rgba(0, 0, 0, 0.1);
+        padding-bottom: 8px;
+        height: 65px;
+        padding: 12px;
+        border-radius: 15px 15px 12px 12px;
+        cursor: pointer;
+        position: relative;
+        will-change: transform;
+        transition: all .9s ease-in-out 0s;
+        user-select: none;
+        /* Add gradient shading to each side */
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+        background-position: bottom right, bottom right;
+        background-size: 100% 100%, 100% 100%;
+        background-repeat: no-repeat;
+        box-shadow: inset -4px -10px 0px rgba(255, 255, 255, 0.4),
+          inset -4px -8px 0px rgba(0, 0, 0, 0.3),
+          0px 2px 1px rgba(0, 0, 0, 0.3),
+          0px 2px 1px rgba(255, 255, 255, 0.1);
+        transform: perspective(70px) rotateX(5deg) rotateY(0deg);
+      }
+
+      .reset::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5));
+        z-index: -1;
+        border-radius: 15px;
+        box-shadow: inset 4px 0px 0px rgba(255, 255, 255, 0.1),
+          inset 4px -8px 0px rgba(0, 0, 0, 0.3);
+        transition: all .1s ease-in-out 0s;
+      }
+
+      .reset::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+        background-position: bottom right, bottom right;
+        background-size: 100% 100%, 100% 100%;
+        background-repeat: no-repeat;
+        z-index: -1;
+        border-radius: 15px;
+        transition: all .1s ease-in-out 0s;
+      }
+
+      .reset:active {
+        will-change: transform;
+        transform: perspective(80px) rotateX(5deg) rotateY(1deg) translateY(3px) scale(0.96);
+        height: 64px;
+        border: 0.25px solid rgba(0, 0, 0, 0.2);
+        box-shadow: inset -4px -8px 0px rgba(255, 255, 255, 0.2),
+          inset -4px -6px 0px rgba(0, 0, 0, 0.8),
+          0px 1px 0px rgba(0, 0, 0, 0.9),
+          0px 1px 0px rgba(255, 255, 255, 0.2);
+        transition: all .1s ease-in-out 0s;
+      }
+
+      .reset::after:active {
+        background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2));
+      }
+
+      .reset:active::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 5%;
+        left: 20%;
+        width: 50%;
+        height: 80%;
+        background-color: rgba(255, 255, 255, 0.1);
+        animation: overlay 0.1s ease-in-out 0s;
+        pointer-events: none;
+      }
+
+      .reset svg {
+        width: 15px;
+        height: 15px;
+      }
+        
+    </style>
+</head>
+<body>
+    <!-- Conteúdo específico do projeto -->
+    <button onclick="location.href='../index.html'" class="back-button"><span>Voltar à Home</span></button>
+    <button class="reset" onclick="resetFileData()">Reset</button>
+    <label for="itemInput" class="color_text">Digite os novos itens (cada item em uma nova linha), <br>caso não tenha o arquivo config.cpp pronto:</label>
+    <br><textarea id="itemInput" rows="3" class="descritivo_itens"></textarea>
+    <br>
+    <label for="itemInput" class="color_text">
+    Caso tenha o config.cpp pronto, clique em "Escolher arquivo", selecione-o e clique em "Importar arquivo".
+    </label>
+    <br>
+    <input type="file" id="fileInput" accept=".cpp">
+    <button onclick="importarArquivo()" class="btn" class="color_text">Importar Arquivo</button>
+    <br>
+    <label for="categorySelect" class="color_text">Escolha a categoria:</label>
+    <div class="radio-input">
+        <label>
+            <input value="weapons" name="value-radio" type="radio" checked="">
+            <span>weapons</span>
+        </label>
+        <label>
+            <input value="clothes" name="value-radio" type="radio">
+            <span>clothes</span>
+        </label>
+        <label>
+            <input value="tools" name="value-radio" type="radio">
+            <span>tools</span>
+        </label>
+        <label>
+            <input value="zombies" name="value-radio" type="radio">
+            <span>zombies</span>
+        </label>
+        <div class="selection"></div>
+    </div>
+    <br>
+    <label for="nominalInput" class="nominal" class="color_text">Escolha o valor nominal:</label>
+    <input type="number" id="nominalInput" class="categorias" min="-20" max="1000" value="1">
+    <br>
+    <label for="quantMinGeralInput" class="geral" class="color_text">Escolha o valor mín. geral:</label>
+    <input type="number" id="quantMinGeralInput" class="categorias" min="-20" max="1000" value="1">
+    <br>
+    <label for="quantMinInput" class="min" class="color_text">Escolha o valor mínimo:</label>
+    <input type="number" id="quantMinInput" class="categorias" min="-20" max="1000" value="1">
+    <br>
+    <label for="quantMaxInput" class="max" class="color_text">Escolha o valor máximo:</label>
+    <input type="number" id="quantMaxInput" class="categorias" min="-20" max="1000" value="1">
+    <!-- Adicione mais opções conforme necessário -->
+    
+    <br><br>
+    <div class="button-container">
+        <button onclick="substituirItens()" class="btn">Substituir</button>
+        <button onclick="limparTexto()" class="btn">Limpar</button>
+        <button onclick="copiarResultado()" class="btn">Copiar Resultado</button>        
+    </div>
+    <p id="totalTypes" class="totaltypes">Total de type names: 0</p>
+</br></br></br></br></br></br><div id="resultado" class="total"></div>
+    
+    <script>
+        function substituirItens() {
+            var items = document.getElementById('itemInput').value.trim().split('\n');
+            var nominalSelecionado = document.getElementById('nominalInput').value;
+            var quantMinGeralSelecionado = document.getElementById('quantMinGeralInput').value;
+            var quantMinSelecionado = document.getElementById('quantMinInput').value;
+            var quantMaxSelecionado = document.getElementById('quantMaxInput').value;
+            var categoriaSelecionada = document.querySelector('input[name="value-radio"]:checked').value;
+            
+            var resultado = '';
+            
+            items.forEach(function(item) {
+                if (categoriaSelecionada === 'zombies') {
+                    resultado += `<type name="${item.trim()}">\n`;
+                    resultado += `    <nominal>${nominalSelecionado}</nominal>\n`;
+                    resultado += `    <restock>1800</restock>\n`;
+                    resultado += `    <lifetime>3888000</lifetime>\n`;
+                    resultado += `    <min>${quantMinGeralSelecionado}</min>\n`;
+                    resultado += `    <quantmin>${quantMinSelecionado}</quantmin>\n`;
+                    resultado += `    <quantmax>${quantMaxSelecionado}</quantmax>\n`;
+                    resultado += `    <cost>100</cost>\n`;
+                    resultado += `    <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0" />\n`;
+                    resultado += `</type>\n\n`;
+                } else {
+                    resultado += `<type name="${item.trim()}">\n`;
+                    resultado += `    <nominal>${nominalSelecionado}</nominal>\n`;
+                    resultado += `    <restock>1800</restock>\n`;
+                    resultado += `    <lifetime>3888000</lifetime>\n`;
+                    resultado += `    <min>${quantMinGeralSelecionado}</min>\n`;
+                    resultado += `    <quantmin>${quantMinSelecionado}</quantmin>\n`;
+                    resultado += `    <quantmax>${quantMaxSelecionado}</quantmax>\n`;
+                    resultado += `    <cost>100</cost>\n`;
+                    resultado += `    <flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0" />\n`;
+                    resultado += `    <category name="${categoriaSelecionada}"/>\n`;
+                    resultado += `    <usage name="Military"/>\n`;
+                    resultado += `    <value name="Tier4"/>\n`;
+                    resultado += `</type>\n\n`;
+                }
+            });
+
+            document.getElementById('resultado').innerText = resultado;
+            // Atualiza o total de type names
+            var totalTypes = items.filter(item => item.trim()).length;
+            document.getElementById("totalTypes").innerText = "Total de type names: " + totalTypes;
+        }
+        
+
+        function limparTexto() {
+            document.getElementById('resultado').innerText = '';
+            document.getElementById('itemInput').value = '';
+            document.getElementById('nominalInput').value = 1;
+            document.getElementById('quantMinGeralInput').value = 1;
+            document.getElementById('quantMinInput').value = 1;
+            document.getElementById('quantMaxInput').value = 1;
+            // Atualiza o total de type names
+            document.getElementById("totalTypes").innerText = "Total de type names: 0";
+        }
+
+        function copiarResultado() {
+            var resultado = document.getElementById('resultado');
+            var range = document.createRange();
+            range.selectNode(resultado);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+        }
+
+        function importarArquivo() {
+            var fileInput = document.getElementById('fileInput');
+            var file = fileInput.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var text = e.target.result;
+                    var lines = text.split('\n');
+
+                    var classNames = lines.filter(function(line) {
+                        var trimmedLine = line.trim();
+                        return trimmedLine.startsWith("class ") && trimmedLine.includes(":");
+                    }).map(function(line) {
+                        var className = line.trim().split(' ')[1];
+                        return className.split(':')[0].trim();
+                    });
+
+                    document.getElementById('itemInput').value = classNames.join('\n');
+                };
+                reader.readAsText(file);
+            } else {
+                alert("Por favor, selecione um arquivo para importar.");
+            }
+        }
+        function resetFileData() {
+    document.getElementById('resultado').innerText = '';
+    document.getElementById('itemInput').value = '';
+    document.getElementById('nominalInput').value = 1;
+    document.getElementById('quantMinGeralInput').value = 1;
+    document.getElementById('quantMinInput').value = 1;
+    document.getElementById('quantMaxInput').value = 1;
+    // Atualiza o total de type names
+    document.getElementById("totalTypes").innerText = "Total de type names: 0";
+}
+    </script>
+</body>
+</html>
